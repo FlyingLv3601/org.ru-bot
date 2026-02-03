@@ -2,6 +2,7 @@ const mineflayer = require('mineflayer');
 const {mapDownloader} = require('mineflayer-item-map-downloader');
 const readline = require('readline');
 const {SocksProxyAgent} = require('socks-proxy-agent');
+const {proxy} = require("./proxy.js")
 
 let twerk;
 
@@ -10,8 +11,8 @@ let mainHost = "server ip";
 
 
 
-// let proxy =       'socks5://185.183.105.133:1080';
-// const agent = new SocksProxyAgent(proxy);
+let randomProxy = Math.floor(Math.random() * proxy.length);
+const agent = new SocksProxyAgent(proxy[randomProxy]);
 
 const bot = mineflayer.createBot({
     host: mainHost,
